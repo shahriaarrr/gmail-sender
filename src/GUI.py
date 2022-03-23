@@ -35,7 +35,7 @@ class Main():
         app_password = self.pass_input.get()
         destination_email = self.to_input.get()
         subject = self.subject_input.get()
-        message = self.message_input.get()
+        message = self.message_input.get("1.0", "end-1c")
 
         main_program(user, app_password, destination_email, subject, message)
 
@@ -131,20 +131,21 @@ class Main():
             background = self.config_background,
             font = ('Arial', 10) ,
         ).pack()
-        message_input = Entry(
+        message_input = Text(
             self.win,
             background = '#FFFFFF',
             foreground = 'black',
-            width = 64,
+            height = 10,
+            width = 40,
         )
         self.message_input = message_input
         message_input.pack()
 
         Label(
             self.win,
-            text = ' ',
+            text = '     ',
             background = self.config_background,
-            font = ('Arial', 30)
+            font = ('Arial', 32)
         ).pack()
 
         send_button = Button(
